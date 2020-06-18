@@ -13,7 +13,7 @@ body {
   color: white;
 }
 .form-container {
-  margin: 0;
+  margin: 15px 30px;
   padding: 0;
   width: 50%;
   height: 450px;
@@ -42,6 +42,7 @@ h2.form-title {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.1);
   border: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
 }
 .form input::placeholder {
   color: rgba(255, 255, 255, 0.5);
