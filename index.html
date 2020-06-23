@@ -8,22 +8,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="form-container">
-      <h2 class="form-title">Travel App</h2>
-      <form action="#" class="form">
-        <label for="">Destination</label>
-        <input type="text" placeholder="Enter a City. . ." />
+    <div class="wrapper">
+      <div class="form-container">
+        <h2 class="form-title">Travel App</h2>
+        <form action="#" class="form">
+          <label for="">Destination</label>
+          <input
+            type="text"
+            placeholder="Enter a City. . ."
+            class="destination"
+          />
 
-        <label for="">Depature Date</label>
-        <input type="date" />
+          <label for="">Depature Date</label>
+          <input type="date" class="departure-date" />
 
-        <label for="">Arrival Date</label>
-        <input type="date" />
+          <label for="">Arrival Date</label>
+          <input type="date" class="arrival-date" />
 
-        <button class="submit">Save Trip</button>
-      </form>
-      <div class="modal"></div>
+          <button class="save-trip">Save Trip</button>
+        </form>
+      </div>
+      <div class="modal">
+        <button class="close">X</button>
+        <div class="info">
+          <div class="image-info">
+            <img src="" alt="image of country" class="country-img" />
+          </div>
+          <div class="country-info">
+            <h1 class="timezone">TimeZone</h1>
+            <p class="day">Sunday</p>
+            <div class="temperature">
+              <h2 class="temperature-value">44</h2>
+              <span class="temperature-unit">F</span>
+            </div>
+            <p class="description">It's cloudy</p>
+          </div>
+        </div>
+      </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
