@@ -57,9 +57,7 @@ form.addEventListener("submit", async function(e) {
   let { hits } = imageResponse;
   let urls = [];
   hits.forEach(item => urls.push(item.largeImageURL));
-  console.log(urls);
   let randomImage = urls[Math.floor(Math.random() * urls.length)];
-  console.log(randomImage);
   imgDOM.src = randomImage;
 });
 
