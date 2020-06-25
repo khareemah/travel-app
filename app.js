@@ -15,7 +15,7 @@ form.addEventListener("submit", async function(e) {
   let date = document.querySelector(".departure-date").value;
 
   let georesult = await fetch(
-    `http://api.geonames.org/searchJSON?formatted=true&q=${country}&maxRows=10&lang=es&username=kareemah&style=full`
+    `httpss://api.geonames.org/searchJSON?formatted=true&q=${country}&maxRows=10&lang=es&username=kareemah&style=full`
   );
   let georesponse = await georesult.json();
   let { lat, lng } = georesponse.geonames[0];
