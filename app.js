@@ -1,7 +1,6 @@
 let form = document.querySelector(".form");
 let close = document.querySelector(".close");
 let modalBox = document.querySelector(".modal");
-
 form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
@@ -35,16 +34,32 @@ form.addEventListener("submit", async function(e) {
     "friday",
     "saturday"
   ];
+  console.log(weatherObject);
   let day = days[new Date(date).getDay()];
 
   let timezoneDOM = document.querySelector(".timezone");
   let dayDOM = document.querySelector(".day");
-  let tempDOM = document.querySelector(".temperature-value");
   let description = document.querySelector(".description");
+  let temperature = document.querySelector(".temperature");
+  let tempValue = document.querySelector(".temperature-value");
+  let tempUnit = document.querySelector(".temperature-unit");
+
   timezoneDOM.textContent = timezone;
+  tempValue.textContent = temp;
   dayDOM.textContent = day.toUpperCase();
-  tempDOM.textContent = temp;
   description.textContent = weather.description;
+
+  // converting temperature
+  temperature.addEventListener("click", function() {
+    if (tempUnit.textContent === "C") {
+      tempValue.textContent = ((temp * 9) / 5 + 32).toFixed(1);
+
+      tempUnit.innerHTML = "F";
+    } else {
+      tempValue.textContent = temp;
+      tempUnit.innerHTML = "C";
+    }
+  });
 
   //fetching image of country
   let imgDOM = document.querySelector(".country-img");
