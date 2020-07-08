@@ -71,10 +71,6 @@ label {
   width: 100%;
   min-height: 100%;
   background-color: rgba(77, 47, 196, 0.7);
-  background-image: linear-gradient(
-    rgba(158, 183, 220, 0),
-    rgb(48, 62, 143, 0)
-  );
 }
 .info {
   display: flex;
