@@ -1,30 +1,28 @@
 let form = document.querySelector(".form");
 let close = document.querySelector(".close");
 let modalBox = document.querySelector(".modal");
-let formContainer = document.querySelector(".form-container");
 
 form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   // open modal
   modalBox.style.display = "block";
-  formContainer.style.opacity = 0;
 
   // fetching long and lat
   let country = document.querySelector(".destination").value;
   let date = document.querySelector(".departure-date").value;
 
-  let georesult = await fetch(
-    `https://api.geonames.org/searchJSON?formatted=true&q=${country}&maxRows=10&lang=es&username=kareemah&style=full`
+  let geoapi = await fetch(
+    `https://us1.locationiq.com/v1/search.php?key=f66cb8d2c19a9f&q=${country}&format=json`
   );
-  let georesponse = await georesult.json();
-  let { lat, lng } = georesponse.geonames[0];
+  let georesponse = await geoapi.json();
+  let { lat, lon } = georesponse[0];
 
   // fetching weather
-  let weatherResult = await fetch(
-    `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=a05e202da04d4432a742b43238169bcc`
+  let weatherapi = await fetch(
+    `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=a05e202da04d4432a742b43238169bcc`
   );
-  let weatherResponse = await weatherResult.json();
+  let weatherResponse = await weatherapi.json();
   let { data, timezone } = weatherResponse;
   let weatherObject = data.find(item => item.datetime === date);
   let { temp, weather } = weatherObject;
@@ -63,5 +61,4 @@ form.addEventListener("submit", async function(e) {
 
 close.addEventListener("click", function() {
   modalBox.style.display = "none";
-  formContainer.style.opacity = 1;
 });
