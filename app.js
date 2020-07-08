@@ -35,7 +35,7 @@ form.addEventListener("submit", async function(e) {
     "friday",
     "saturday"
   ];
-  let day = days[new Date(date).getDay() + 1];
+  let day = days[new Date(date).getDay()];
 
   let timezoneDOM = document.querySelector(".timezone");
   let dayDOM = document.querySelector(".day");
@@ -53,10 +53,8 @@ form.addEventListener("submit", async function(e) {
   );
   let imageResponse = await imageResult.json();
   let { hits } = imageResponse;
-  let urls = [];
-  hits.forEach(item => urls.push(item.largeImageURL));
-  let randomImage = urls[Math.floor(Math.random() * urls.length)];
-  imgDOM.src = randomImage;
+  let url = hits[0].largeImageURL;
+  imgDOM.src = url;
 });
 
 close.addEventListener("click", function() {
